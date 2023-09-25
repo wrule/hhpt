@@ -5,9 +5,9 @@
   "scripts": {
     "build": "npx hardhat compile",
     "test": "script/test.sh",
+    "dev": "npx hardhat run scripts/dev.ts",
     "clean": "rm -rf dist",
     "watch": "tsc --watch",
-    "dev": "node dist/dev.js",
     "new": "ts-node script/new.ts",
     "patch": "script/patch.sh"
   },
