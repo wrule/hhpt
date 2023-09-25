@@ -4,7 +4,6 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "pack": "script/pack.sh",
     "clean": "rm -rf dist",
     "watch": "tsc --watch",
     "dev": "node dist/dev.js",
