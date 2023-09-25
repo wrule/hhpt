@@ -129,6 +129,15 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+coverage
+coverage.json
+typechain
+typechain-types
+
+# Hardhat files
+cache
+artifacts
+
 output/
 .DS_Store
 .secret*.json
