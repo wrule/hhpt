@@ -11,4 +11,8 @@ contract JimaoToken is ERC20 {
   function decimals() public pure virtual override returns (uint8) {
     return 6;
   }
+
+  function airdrop() public {
+    _transfer(address(this), msg.sender, 10 * 1e6);
+  }
 }
