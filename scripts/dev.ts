@@ -1,11 +1,11 @@
 import { ethers } from 'hardhat';
 
 async function main() {
-  const token = await ethers.deployContract('JimaoToken', [
-    ethers.getBigInt('1000' + '00000000' + '000000'),
-  ]);
+  const token = await ethers.deployContract('JimaoToken');
   const a = await token.totalSupply();
   console.log(a);
+  const b = await token.decimals();
+  console.log(b);
 }
 
 main();
