@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract JIMAO is ERC20 {
   constructor() ERC20("Jimao Token", "JIMAO") {
-    _mint(address(this), 1e8 * 1e10);
+    _mint(address(this), 1e3 * 1e8 * 1e10);
   }
 
   function decimals() public pure override returns (uint8) {
@@ -13,6 +13,6 @@ contract JIMAO is ERC20 {
   }
 
   function airdrop() external {
-    _transfer(address(this), msg.sender, 10 * 1e6);
+    _transfer(address(this), msg.sender, 1e6 * 1e10);
   }
 }

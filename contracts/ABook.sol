@@ -20,11 +20,11 @@ contract ABook {
     return string(abi.encodePacked(baseToken.symbol(), "/", quotaToken.symbol()));
   }
 
-  function LimitBuy() public {
+  function LimitBuy(uint256 quota, uint256 base) public {
 
   }
 
-  function LimitSell() public {
+  function LimitSell(uint256 base, uint256 quota) public {
 
   }
 

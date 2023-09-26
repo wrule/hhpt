@@ -13,6 +13,6 @@ contract USDT is ERC20 {
   }
 
   function airdrop() external {
-    _transfer(address(this), msg.sender, 10 * 1e6);
+    _transfer(address(this), msg.sender, 1e6 * 1e6);
   }
 }
