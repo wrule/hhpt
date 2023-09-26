@@ -3,7 +3,7 @@ pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract Jimao is ERC20 {
+contract JIMAO is ERC20 {
   constructor() ERC20("Jimao Token", "JIMAO") {
     _mint(address(this), 1e8 * 1e10);
   }
