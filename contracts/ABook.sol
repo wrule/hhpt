@@ -16,8 +16,8 @@ contract ABook {
     quotaToken = ERC20(quoteAddr);
   }
 
-  function name() public view returns (string memory) {
-    return string(abi.encodePacked(baseToken.name(), quotaToken.name()));
+  function symbol() public view returns (string memory) {
+    return string(abi.encodePacked(baseToken.symbol(), "/", quotaToken.symbol()));
   }
 
   function LimitBuy() public {

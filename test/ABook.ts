@@ -11,7 +11,7 @@ describe("ABook", function () {
       jimao.getAddress(),
       usdt.getAddress(),
     ]));
-    console.log(await abook.name());
+    console.log(await abook.symbol());
     expect(1).to.equal(1);
   });
 });
