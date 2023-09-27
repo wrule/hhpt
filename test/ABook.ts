@@ -11,10 +11,10 @@ describe("ABook", function () {
       jimao.getAddress(),
       usdt.getAddress(),
     ]));
-    console.log(await abook.symbol());
-    const a = await abook.Push();
-    const b = await abook.Length();
-    console.log(b);
+    console.log(await abook.foo());
+    // const a = await abook.Push();
+    // const b = await abook.Length();
+    // console.log(b);
     expect(1).to.equal(1);
   });
 });

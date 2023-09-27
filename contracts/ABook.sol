@@ -52,4 +52,8 @@ contract ABook {
   function Length() public view returns (uint256) {
     return list.length;
   }
+
+  // function foo() public {
+  //   ABook.foo();
+  // }
 }
