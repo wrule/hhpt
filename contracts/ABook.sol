@@ -35,4 +35,21 @@ contract ABook {
   function MarketSell() public {
 
   }
+
+  uint256[] list = new uint256[](20);
+
+   modifier onlyOwner {
+      require(msg.sender == address(this)); // 检查调用者是否为owner地址
+      _; // 如果是的话，继续运行函数主体；否则报错并revert交易
+   }
+
+  function Push() public onlyOwner {
+    // uint256[] memory pl = new uint256[](100);
+    // pl.push();
+    list.push();
+  }
+
+  function Length() public view returns (uint256) {
+    return list.length;
+  }
 }
