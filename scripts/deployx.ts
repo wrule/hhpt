@@ -1,7 +1,6 @@
 import { ethers } from 'hardhat';
 
 async function main() {
-  console.log(process.argv);
   const name = 'JIMAO';
   const signer = (await ethers.getSigners())[0];
   console.log('operator:', signer.address);
