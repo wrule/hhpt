@@ -6,6 +6,7 @@
     "build": "npx hardhat compile",
     "test": "script/test.sh",
     "dev": "npx hardhat run scripts/dev.ts",
+    "node": "npx hardhat node",
     "clean": "rm -rf dist",
     "watch": "tsc --watch",
     "new": "ts-node script/new.ts",
