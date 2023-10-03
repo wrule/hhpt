@@ -11,6 +11,13 @@ struct Deposit {
   address contractAddress;
 }
 
+struct Pagination {
+  uint total;
+  uint pageNum;
+  uint pageSize;
+  Deposit[] list;
+}
+
 contract JIMAO is ERC20, Ownable {
   constructor() ERC20("Jimao Token", "JIMAO") {
     _mint(address(this), 1e3 * 1e8 * 1e10);
