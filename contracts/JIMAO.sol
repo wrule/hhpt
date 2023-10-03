@@ -44,11 +44,14 @@ contract JIMAO is ERC20, Ownable {
   function changeDepositETH(uint index, uint withdrawAmount) external payable {
     require(index < db[msg.sender].length, "index < db[msg.sender].length");
     Deposit storage deposit = db[msg.sender][index];
-    deposit.amount += msg.value;
-    require(deposit.amount >= withdrawAmount, "deposit.amount >= withdrawAmount");
-    require(address(this).balance >= withdrawAmount, "address(this).balance >= withdrawAmount");
-    deposit.amount -= withdrawAmount;
-    payable(msg.sender).transfer(withdrawAmount);
+    if (msg.value > 0) deposit.amount += msg.value;
+    if (withdrawAmount > 0) {
+      require(block.timestamp >= deposit.withdrawTime, "block.timestamp >= deposit.withdrawTime");
+      require(deposit.amount >= withdrawAmount, "deposit.amount >= withdrawAmount");
+      require(address(this).balance >= withdrawAmount, "address(this).balance >= withdrawAmount");
+      deposit.amount -= withdrawAmount;
+      payable(msg.sender).transfer(withdrawAmount);
+    }
   }
 
   function myDeposits(
