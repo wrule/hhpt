@@ -5,7 +5,6 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 struct Deposit {
-  bool isValid;
   uint256 amount;
   int64 withdrawTime;
   address contractAddress;
@@ -36,7 +35,6 @@ contract JIMAO is ERC20, Ownable {
   function depositETH() external payable {
     require(msg.value > 0, "msg.value > 0");
     Deposit memory newDeposit;
-    newDeposit.isValid = true;
     newDeposit.amount = msg.value;
     newDeposit.withdrawTime = 0;
     newDeposit.contractAddress = address(0);
