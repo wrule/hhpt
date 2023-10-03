@@ -34,7 +34,7 @@ contract JIMAO is ERC20, Ownable {
   mapping(address => Deposit[]) public db;
 
   function depositETH() external payable {
-    require(msg.value > 0, "msg.value must > 0");
+    require(msg.value > 0, "msg.value > 0");
     Deposit memory newDeposit;
     newDeposit.isValid = true;
     newDeposit.amount = msg.value;
@@ -44,9 +44,11 @@ contract JIMAO is ERC20, Ownable {
   }
 
   function changeDepositETH(uint index, uint withdrawAmount) external payable {
+    require(index < db[msg.sender].length, "index < db[msg.sender].length");
     Deposit storage deposit = db[msg.sender][index];
     deposit.amount += msg.value;
-    require(deposit.amount >= withdrawAmount, "deposit.amount must >= withdrawAmount");
+    require(deposit.amount >= withdrawAmount, "deposit.amount >= withdrawAmount");
+    require(address(this).balance >= withdrawAmount, "address(this).balance >= withdrawAmount");
     deposit.amount -= withdrawAmount;
     payable(msg.sender).transfer(withdrawAmount);
   }
