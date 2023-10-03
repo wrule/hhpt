@@ -42,10 +42,8 @@ contract JIMAO is ERC20, Ownable {
   ) view external returns (Deposit[] memory) {
     Deposit[] memory deposits = db[msg.sender];
     uint total = deposits.length;
-    uint lastPageNum = total / pageSize + (total % pageSize == 0 ? 0 : 1);
-    if (lastPageNum == 0) lastPageNum = 1;
+    uint lastPageNum = total == 0 ? 1 : total / pageSize + (total % pageSize == 0 ? 0 : 1);
     if (pageNum > lastPageNum) pageNum = lastPageNum;
-
     uint startIndex = (pageNum - 1) * pageSize;
     uint endIndex = startIndex + pageSize;
     if (endIndex > total) endIndex = total;
