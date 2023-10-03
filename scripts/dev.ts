@@ -11,9 +11,11 @@ async function main() {
   await logBalance(signer);
   const jimao = await ethers.deployContract('JIMAO');
   await logBalance(signer);
-  await jimao.depositETH({ value: ethers.parseEther('10') });
+  await jimao.depositETH({ value: ethers.parseEther('100') });
   await logBalance(signer);
-  await jimao.changeDepositETH(0, ethers.parseEther('1'));
+  await jimao.changeDepositETH(0, ethers.parseEther('100'));
+  await logBalance(signer);
+  await jimao.changeDepositETH(0, ethers.parseEther('3'), { value: ethers.parseEther('3') });
   await logBalance(signer);
 }
 
