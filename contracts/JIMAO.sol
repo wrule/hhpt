@@ -5,8 +5,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 struct Deposit {
-  uint256 amount;
-  int64 withdrawTime;
+  uint amount;
+  uint64 withdrawTime;
   address contractAddress;
 }
 
