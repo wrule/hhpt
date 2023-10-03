@@ -40,6 +40,8 @@ contract JIMAO is ERC20, Ownable {
     uint pageNum,
     uint pageSize
   ) view external returns (Deposit[] memory) {
+    require(pageNum >= 1, "pageNum must >= 1");
+    require(pageSize >= 1, "pageSize must >= 1");
     Deposit[] memory deposits = db[msg.sender];
     uint total = deposits.length;
     uint lastPageNum = total == 0 ? 1 : total / pageSize + (total % pageSize == 0 ? 0 : 1);
