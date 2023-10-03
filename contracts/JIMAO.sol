@@ -51,7 +51,7 @@ contract JIMAO is ERC20, Ownable {
     if (endIndex > total) endIndex = total;
     Deposit[] memory result = new Deposit[](endIndex - startIndex);
     for (uint i = startIndex; i < endIndex; ++i) {
-      result[i - startIndex] = deposits[startIndex];
+      result[i - startIndex] = deposits[i];
     }
     return result;
   }
