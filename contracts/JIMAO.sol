@@ -32,11 +32,11 @@ contract JIMAO is ERC20, Ownable {
 
   mapping(address => Deposit[]) public db;
 
-  function depositETH() external payable {
+  function depositETH(uint64 withdrawTime) external payable {
     require(msg.value > 0, "msg.value > 0");
     Deposit memory newDeposit;
     newDeposit.amount = msg.value;
-    newDeposit.withdrawTime = 0;
+    newDeposit.withdrawTime = withdrawTime;
     newDeposit.contractAddress = address(0);
     db[msg.sender].push(newDeposit);
   }
