@@ -78,4 +78,8 @@ contract JIMAO is ERC20, Ownable {
     result.list = list;
     return result;
   }
+
+  function myAddress() view external returns (address) {
+    return msg.sender;
+  }
 }
