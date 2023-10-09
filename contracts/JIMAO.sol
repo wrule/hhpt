@@ -59,8 +59,8 @@ contract JIMAO is ERC20, Ownable {
     uint pageNum,
     uint pageSize
   ) view external returns (Pagination memory) {
-    require(pageNum >= 1, "pageNum must >= 1");
-    require(pageSize >= 1, "pageSize must >= 1");
+    require(pageNum >= 1, "pageNum >= 1");
+    require(pageSize >= 1, "pageSize >= 1");
     Deposit[] memory deposits = db[addr];
     uint total = deposits.length;
     uint lastPageNum = total == 0 ? 1 : total / pageSize + (total % pageSize == 0 ? 0 : 1);
@@ -70,7 +70,7 @@ contract JIMAO is ERC20, Ownable {
     if (endIndex > total) endIndex = total;
     Deposit[] memory list = new Deposit[](endIndex - startIndex);
     for (uint i = startIndex; i < endIndex; ++i) {
-      list[i - startIndex] = deposits[i];
+      list[i - startIndex] = deposits[total - 1 - i];
     }
     Pagination memory result;
     result.total = total;
